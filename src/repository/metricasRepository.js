@@ -4,7 +4,7 @@ require('dotenv').config();
 
 exports.getAllMetricas = async () => {
     const db = initDB();
-    let sql = `select * from metricas`;
+    let sql = `select * from metricas ORDER BY id DESC LIMIT 200  `;
 
     const data = await new Promise( (res, rej) => {
         db.all(sql, (err, rows) => {
